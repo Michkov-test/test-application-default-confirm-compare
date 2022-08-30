@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: xxxx
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: xxxx
+    app.kubernetes.io/part-of: test-application
+  name: xxxx
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: xxxx
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: xxxx
+    spec:
+      containers:
+      - image: quay.io/mkovari/devfile-sample-python-basic.git
+        imagePullPolicy: Always
+        name: container-image
+        resources: {}
+status: {}
